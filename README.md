@@ -28,9 +28,9 @@ Mode 별 동작을 수행하고 결과를 **FND** 로 출력하는 미니 프로
 ## Key 동작 정의
 | Key | 기능 |
 |-----|------|
-| SW1 | Mode 변경 (Start/Stop_flag가 0일 때만 동작) |
+| SW1 | Mode 변경 (flag가 0일 때만 동작) |
 | SW2 | Start/Stop Toggle |
-| SW3 | 기능 실행 트리거 (Start/Stop_flag가 0일 때만 set) |
+| SW3 | 기능 실행 트리거 (flag가 0일 때만 set) |
 
 > Key 입력은 `HAL_GPIO_EXTI_Callback()`에서 처리합니다.
 
