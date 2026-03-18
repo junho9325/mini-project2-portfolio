@@ -148,6 +148,15 @@ void HAL_SYSTICK_Callback()
 	else if(kp->key_cnt == 4) 	fnd_595_out((ct->go_x * 1000) + (ct->go_y * 100) + (ct->go_x * ct->go_y));
 }
 
+void counting()
+{
+	fg->sw3_flag = 0;
+
+	if(kp->key_cnt == 2) ct->cnt16 = (ct->cnt16 >= 4999) ? 0 : ct->cnt16 + 1;
+	else if(kp->key_cnt == 3) ct->dcnt16 = (ct->dcnt16 <= 1) ? 5000 : ct->dcnt16 - 1;
+	else if(kp->key_cnt == 4) ct->go_x = (ct->go_x >= 9) ? 1 : ct->go_x + 1;
+}
+
 // 인터럽트 타이머 시작
 HAL_TIM_Base_Start_IT(&htim2);
 HAL_TIM_Base_Start_IT(&htim7);
